@@ -13,7 +13,7 @@ public enum Mode {
      */
     SCREEN,
     /**
-     * TmuxMode escapes the OSC52 sequence for tmux. Not needed if tmux
+     * Escapes the OSC52 sequence for tmux. Not needed if tmux
      * clipboard is set to {@code set-clipboard on}.
      */
     TMUX;

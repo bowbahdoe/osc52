@@ -106,6 +106,12 @@ public final class OSC52 {
         this.clipboard = Objects.requireNonNull(clipboard);
     }
 
+    /**
+     * Creates a new OSC52 sequence with the given string(s). Strings are
+     * joined with a space character.
+     * @param strs The strings to use.
+     * @return A new OSC52 sequence.
+     */
     public static OSC52 of(String... strs) {
         return new OSC52(
                 String.join(" " , strs),
@@ -116,6 +122,12 @@ public final class OSC52 {
         );
     }
 
+
+    /**
+     * Sets the mode.
+     * @param mode The new mode.
+     * @return A new instance with the mode set.
+     */
     public OSC52 mode(Mode mode) {
         return new OSC52(
                 this.str,
@@ -126,14 +138,38 @@ public final class OSC52 {
         );
     }
 
+    /**
+     * Sets the mode to {@link Mode#TMUX}.
+     *
+     * <p>
+     *     This is a shortcut for {@code mode(Mode.TMUX)}
+     * </p>
+     *
+     * @return A new instance with the set to {@link Mode#TMUX}.
+     */
     public OSC52 tmux() {
         return this.mode(Mode.TMUX);
     }
 
+
+    /**
+     * Sets the mode to {@link Mode#SCREEN}.
+     *
+     * <p>
+     *     This is a shortcut for {@code mode(Mode.SCREEN)}
+     * </p>
+     *
+     * @return A new instance with the set to {@link Mode#SCREEN}.
+     */
     public OSC52 screen() {
         return this.mode(Mode.SCREEN);
     }
 
+    /**
+     * Sets the clipboard buffer.
+     * @param clipboard The clipboard buffer to use.
+     * @return A new instance with the clipboard buffer set.
+     */
     public OSC52 clipboard(Clipboard clipboard) {
         return new OSC52(
                 this.str,
@@ -144,10 +180,29 @@ public final class OSC52 {
         );
     }
 
+    /**
+     * Sets the clipboard to {@link Clipboard#PRIMARY}.
+     * <p>
+     *     This is a shortcut for {@code clipboard(Clipboard.PRIMARY)}.
+     * </p>
+     *
+     * @return A new instance with the operation set to {@link Clipboard#PRIMARY}.
+     */
     public OSC52 primary() {
         return this.clipboard(Clipboard.PRIMARY);
     }
 
+    /**
+     * Sets the limit.
+     * The default limit is 0 (no limit).
+     * <p>
+     * Strings longer than the limit get ignored. Settting the limit to 0 or a
+     * negative value disables the limit. Each terminal defines its own escapse
+     * sequence limit.
+     * </p>
+     * @param limit The new limit.
+     * @return A new instance with the limit sent.
+     */
     public OSC52 limit(int limit) {
         return new OSC52(
                 this.str,
@@ -158,7 +213,12 @@ public final class OSC52 {
         );
     }
 
-
+    /**
+     * Sets the operation.
+     *
+     * @param op The new operation.
+     * @return A new instance with the operation set.
+     */
     public OSC52 operation(Operation op) {
         return new OSC52(
                 this.str,
@@ -169,14 +229,35 @@ public final class OSC52 {
         );
     }
 
+    /**
+     * Sets the operation to {@link Operation#CLEAR}.
+     * <p>
+     *     This is a shortcut for {@code operation(Operation.CLEAR)}.
+     * </p>
+     *
+     * @return A new instance with the operation set to {@link Operation#CLEAR}.
+     */
     public OSC52 clear() {
         return this.operation(Operation.CLEAR);
     }
 
+    /**
+     * Sets the operation to {@link Operation#QUERY}.
+     * <p>
+     *     This is a shortcut for {@code operation(Operation.QUERY)}.
+     * </p>
+     *
+     * @return A new instance with the operation set to {@link Operation#QUERY}.
+     */
     public OSC52 query() {
         return this.operation(Operation.QUERY);
     }
 
+    /**
+     * Sets the string to use in the sequence.
+     * @param strs The string to use in the sequence.
+     * @return A new instance with the new string sent.
+     */
     public OSC52 withString(String... strs) {
         return new OSC52(
                 String.join(" ", strs),
@@ -187,10 +268,28 @@ public final class OSC52 {
         );
     }
 
+    /**
+     * Makes a new instance with the operation set to {@link Operation#QUERY}.
+     *
+     * <p>
+     *     This is a shortcut for {@code OSC52.of().query()}.
+     * </p>
+     *
+     * @return A new instance with the operation set to {@link Operation#QUERY}.
+     */
     public static OSC52 ofQuery() {
         return OSC52.of().query();
     }
 
+    /**
+     * Makes a new instance with the operation set to {@link Operation#CLEAR}.
+     *
+     * <p>
+     *     This is a shortcut for {@code OSC52.of().clear()}.
+     * </p>
+     *
+     * @return A new instance with the operation set to {@link Operation#CLEAR}.
+     */
     public static OSC52 ofClear() {
         return OSC52.of().clear();
     }
@@ -210,6 +309,9 @@ public final class OSC52 {
         };
     }
 
+    /**
+     * @return The OSC52 sequence.
+     */
     @Override
     public String toString() {
         var sb = new StringBuilder();
