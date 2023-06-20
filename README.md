@@ -1,10 +1,8 @@
 
 # osc52
 
-<p>
-    <a href="https://github.com/aymanbagabas/go-osc52/releases"><img src="https://img.shields.io/github/release/aymanbagabas/go-osc52.svg" alt="Latest Release"></a>
-    <a href="https://pkg.go.dev/github.com/aymanbagabas/go-osc52/v2?tab=doc"><img src="https://godoc.org/github.com/golang/gddo?status.svg" alt="GoDoc"></a>
-</p>
+[![javadoc](https://javadoc.io/badge2/dev.mccue/osc52/javadoc.svg)](https://javadoc.io/doc/dev.mccue/osc52)
+[![Tests](https://github.com/bowbahdoe/osc52/actions/workflows/test.yml/badge.svg)](https://github.com/bowbahdoe/osc52/actions/workflows/test.yml)
 
 A Java library to work with the [ANSI OSC52](https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h3-Operating-System-Commands) terminal sequence.
 
