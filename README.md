@@ -16,7 +16,7 @@ Requires Java 17+
 <dependency>
     <groupId>dev.mccue</groupId>
     <artifactId>osc52</artifactId>
-    <version>0.1.0</version>
+    <version>2023.06.20</version>
 </dependency>
 ```
 
@@ -24,7 +24,7 @@ Requires Java 17+
 
 ```
 dependencies {
-    implementation("dev.mccue:osc52:0.1.0")
+    implementation("dev.mccue:osc52:2023.06.20")
 }
 ```
 
